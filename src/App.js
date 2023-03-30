@@ -42,15 +42,20 @@ function App() {
   //     ]
   //   }
   // ]
-  const [persons, setPersons] = useState([{ name: "Arsen Iusupov" }]);
+  const [persons, setPersons] = useState([{ 
+      id: 1,
+      name: "Arsen Iusupov",
+      number: "996557447807" 
+    }]);
 
   const [newName, setNewName] = useState("");
   return (
     <div>
-      <h1>Пользователи</h1>
+      <h1>Контакты</h1>
       <form>
         <input type="text" placeholder="person" />
-        <input type="submit" value="Добавить пользователя" />
+        <input type="text" placeholder="телефон" />
+        <input type="submit" value="Добавить контакт" />
       </form>
       <div>
         {/* Тут отобразить всех пользователей в тегах p */}
@@ -65,6 +70,31 @@ function App() {
 }
 
 export default App;
+
+
+/*
+    Изменить приложение таким образом, что отображаемые контакты приходят с сервера
+    1. Создать папку api, в ней создать файл db.json || contacts.json
+    2. Внутри db.json || contact.json создать json-строку вида
+        {
+          "person" : [
+            {
+              id: 1,
+              name: "Arsen Iusupov"
+              number: "996557447807" 
+            },
+            {}
+          ]
+        }
+    3. Отправить запрос с помощью axios
+    4. Отобразить контакты, полученные в ответе
+    5. Добавить useEffect() для полного алгоритма 
+
+      <div className={styles.contact}>
+        <p className={styles.name}>Имя контакта</p>
+        <p className={styles.phone}>Номер телефона контакта</p>
+      </div>
+*/
 
 /*
   1. Отобразить пользователей в div. Каждый пользователь в теге p
